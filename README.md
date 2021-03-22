@@ -344,3 +344,22 @@ export default App;
 5. componentWillUnmount는 component가 떠날 때 호출
 
 <br>
+
+## Chapter 4
+
+### Fetching Movies from API
+
+- Data fetch
+  - YTS API에서 영화 정보를 받아옴
+  - Axios 이용
+
+```jsx
+getMovies = async () => {
+  const movies = await axios.get('https://yts-proxy.nomadcoders1.now.sh/list_movies.json');
+};
+```
+
+### async, await 쓰는 이유
+
+- axios.get으로 데이터를 받아오는 게 느릴 수 있음
+- 완전히 데이터를 받아오고 처리하기 위해서
