@@ -41,9 +41,9 @@ code .
 
 ### git 연결하기
 
-1. VSC Terminal에 git init
-2. Github에서 new repository 생성
-3. VSC Terminal에 git remote add origin [https://github.com/dkssyddico/movie_app_2021](https://github.com/dkssyddico/movie_app_2021)
+1. VSC를 실행시킨 폴더의 Terminal에 git init
+2. Github에서 new repository 생성(되도록 같은 이름 사용, package.json의 name에 쓴 이름)
+3. VSC Terminal에 git remote add origin + URL [https://github.com/dkssyddico/movie_app_2021](https://github.com/dkssyddico/movie_app_2021)
 4. git add .
 5. git commit -m "first commit"
 6. git push origin master
@@ -212,8 +212,8 @@ add = () => {
 };
 ```
 
-- 🔽 **current**로 만드는 방법.
-  - state를 set할 때, react에서 외부의 상태에 의존하지 않는 가장 좋은 방법
+- **current**로 만드는 방법 🔽
+- state를 set할 때, react에서 외부의 상태에 의존하지 않는 가장 좋은 방법
 
 ```jsx
 add = () => {
@@ -382,7 +382,45 @@ getMovies = async () => {
 - string은 Array와 같다
 - string.length: 길이 반환
 - string.slice(start, end)
+  - start: 추출 시작점
+  - end: 추출 종료점
 
 ```jsx
 <p className='movie__summary'>{summary.slice(0, 180)}...</p>
 ```
+
+<br>
+
+## Chapter 5
+
+### Deploying to Github Pages
+
+```
+npm i gh-pages
+```
+
+- package.json에 homepage 추가
+
+```
+"homepage": "https://dkssyddico.github.io/movie_app_2021/"
+```
+
+- npm run build: 나에게 build 폴더를 줌
+- 이 build 폴더를 gh-pages에 업로드한다.
+
+- package.json scripts 추가
+
+```
+"deploy": "gh-pages -d build",
+"predeploy": "npm run build"
+```
+
+- deploy는 기본적으로 predeploy를 불러온다
+- npm run deploy를 하면 gh-pages에 업로드 완료.
+
+<br>
+
+1. gh-pages 설치
+2. homepage 넣기
+3. 내 깃허브 io 주소 넣기
+4. deploy, predeploy 명령어 넣어서 실행 !
