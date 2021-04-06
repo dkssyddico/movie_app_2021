@@ -424,3 +424,12 @@ npm i gh-pages
 2. homepage 넣기
 3. 내 깃허브 io 주소 넣기
 4. deploy, predeploy 명령어 넣어서 실행 !
+
+<br>
+
+## Chapter 6
+
+react-router-dom : 네비게이션을 만들어주는 패키지
+
+Router는 무슨 페이지에 있을 때 어디로 가라고 해주는 것
+ex) '/about' -> About.js
