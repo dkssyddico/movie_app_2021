@@ -25,8 +25,30 @@ getMovies = async () => {
 
 - 그냥 class는 자바스크립트의 `class` 라고 인식.
 - class를 className으로
+
+```jsx
+<h3 className='movie__title'>{title}</h3>
+```
+
 - HTML, CSS와 JS에서 같은 이름으로 다른 기능을 하는 것이 있다
   - ex: class, for → className, htmlFor
+
+<br>
+
+### unique key prop 오류날 때
+
+```jsx
+<ul className='movie__genres'>
+  {genres.map((genre, index) => (
+    <li key={index} className='genres__genre'>
+      {genre}
+    </li>
+  ))}
+</ul>
+```
+
+- map function은 index argument를 준다.
+- index 숫자를 key에 넣어줘서 해결.
 
 <br>
 

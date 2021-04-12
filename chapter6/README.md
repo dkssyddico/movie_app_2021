@@ -1,11 +1,17 @@
 ## Chapter 6
 
-react-router-dom : 네비게이션을 만들어주는 패키지
+### react-router-dom
 
-Router는 무슨 페이지에 있을 때 어디로 가라고 해주는 것
-ex) '/about' -> About.js
+- 네비게이션을 만들어주는 패키지
+- npm i react-router-dom
 
-url을 가져다가 라우터가 컴포넌트를 불러오는 것임
+<br>
+
+### # 6.1 Building Router
+
+- Router는 무슨 페이지에 있을 때 어디로 가라고 해주는 것
+  - '/about' -> About.js
+  - url을 가져다가 라우터가 컴포넌트를 불러오는 것임
 
 ```javascript
 function App() {
@@ -17,13 +23,27 @@ function App() {
 }
 ```
 
-Route 에는 props 2 렌더링할 스크린이 들어가고 다른 프롭은 뭘할지 정해짐 what url is going to do
+- Route 에는 props 2개가 들어감
+- 어느 path로 갈지, 렌더링할 스크린이 들어가고 다른 프롭은 뭘할지 정해짐 what url is going to do
+
+#### 간단하게 About.js 만들기
+
+```jsx
+import React from 'react';
+
+function About() {
+  return <span>hi</span>;
+}
+
+export default About;
+```
 
 <br>
 
 ```javascript
 <HashRouter>
   <Route path='/'>
+    ****
     <h1>Home</h1>
   </Route>
   <Route path='/about'>Abput</Route>
@@ -61,9 +81,11 @@ Route 에는 props 2 렌더링할 스크린이 들어가고 다른 프롭은 뭘
 
 이렇게 하면 안겹쳐짐
 
+- exact는 이거 아니면 렌더링 안한다는 뜻 !
+
 <br>
 
-### #6.2
+### # 6.2 Building the Navigation
 
 네비게이션: home과 about을 서로 이동하게 만들어주는 것. 버튼을 만든다고 한다
 
@@ -80,9 +102,12 @@ href 속성을 쓰면 그냥 새로고침만 시켜버리고 원하는 페이지
 
 HTML의 a 태그, href 를 Link, to로 대체한다
 
-router 밖에서 Link를 쓸 수 없다
+router 밖에서 Link를 쓸 수 없다.
+링크는 라우터 안에 있어야 한다.
 
-## fragment
+모든 걸 라우터 안에 넣을 필요는 없지만, Link는 라우터 안에 넣어여 함.
+
+### fragment
 
 <></>
 
@@ -94,11 +119,11 @@ router 밖에서 Link를 쓸 수 없다
 
 <br>
 
-### props
+### # 6.3 Sharing Props Between Routes
+
+**props**
 
 props를 통해 정보를 전달하고 about에 정보를 실제로 그려준다
-
-### #6.3
 
 Link에서 to는 string과 object, function를 받을 수 있음
 
@@ -126,8 +151,15 @@ Link에서 to는 string과 object, function를 받을 수 있음
 
 about page에 object를 보내는 것
 
-### #6.4 Redirecting
+### # 6.4 Redirecting
 
 render() => componentDidMount() 실행
 
 - movie-detail 말고 movie/:id 형식으로 할 수도 있다.
+
+<br>
+
+props 에서 history에서 많은 걸 할 수 있다.
+
+- history
+  - history.push('/')
